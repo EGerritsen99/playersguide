@@ -1,0 +1,11 @@
+package challenge39;
+
+public class EastCommand extends RobotCommand {
+
+    @Override
+    public void run(Robot robot) {
+        if (robot.getPowered() == true) {
+            robot.moveX(1);
+        }
+    }
+}
