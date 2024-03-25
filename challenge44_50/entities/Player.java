@@ -6,13 +6,11 @@ public class Player extends Entity {
 
     //Fields
     private int amountOfArrows;
-    private final int size;
 
     //Constructor
     public Player(int size) {
         super(0, 0, size);
         setAmountOfArrows(5);
-        this.size = size;
     }
 
     //Methods

@@ -1,10 +1,10 @@
 package challenge44_50.entities;
 
 public class Maelstrom extends Entity {
-    private final int size;
+
     public Maelstrom(int row, int column, int size) {
         super(row, column, size);
-        this.size = size;
+
     }
 
     public void hitPlayer() {
@@ -20,7 +20,6 @@ public class Maelstrom extends Entity {
             setColumn(getColumn() + 1);
         }
     }
-
     @Override
     public void moveLeft() {
 
@@ -29,7 +28,6 @@ public class Maelstrom extends Entity {
         }
 
     }
-
     @Override
     public void moveUp() {
 
@@ -38,7 +36,6 @@ public class Maelstrom extends Entity {
         }
 
     }
-
     @Override
     public void moveDown() {
 

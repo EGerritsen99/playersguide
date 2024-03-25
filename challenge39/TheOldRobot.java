@@ -20,9 +20,14 @@ public class TheOldRobot {
             }
 
             RobotCommand robotCommand = convertCommand(command);
-            if(robotCommand != null) {
-                inputCommands.add(robotCommand);
+
+            while(robotCommand == null) {
+                System.out.println("Input invalid. Try something else.");
+                command = scanner.next();
+                robotCommand = convertCommand(command);
             }
+
+            inputCommands.add(robotCommand);
 
         }
 
@@ -39,10 +44,7 @@ public class TheOldRobot {
             case "west" -> new WestCommand();
             case "on" -> new OnCommand();
             case "off" -> new OffCommand();
-            default -> {
-                System.out.println("Input invalid. Try something else.");
-                yield null;
-            }
+            default -> null;
         };
 
     }

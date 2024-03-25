@@ -8,7 +8,7 @@ public class Entity {
     //Fields
     private int row;
     private int column;
-    private final int size;
+    protected final int size;
     private static final String wrongWay = ANSI_RED + "Can't move this way. Try something else" + ANSI_RESET;
 
     //Constructor
