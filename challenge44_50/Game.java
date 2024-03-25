@@ -3,7 +3,6 @@ package challenge44_50;
 import challenge44_50.data.*;
 import challenge44_50.entities.*;
 import challenge44_50.rooms.*;
-
 import static challenge44_50.data.Colours.*;
 
 public class Game {
@@ -18,8 +17,8 @@ public class Game {
     public Game(int size, int amountPits, int amountMaelstroms, int amountAmaroks) {
 
         cavern = new Cavern(size, amountPits, amountMaelstroms, amountAmaroks);
+        player = new Player(size);
         currentRoom = cavern.getCavern()[0][0];
-        player = new Player();
         this.size = size;
 
     }
@@ -103,7 +102,6 @@ public class Game {
     }
     public String getRoomMessage(){
         String message = "";
-        // Set fountainroom message
         if (currentRoom instanceof FountainRoom) {
             if (cavern.isFountainOn()) {
                 message = ANSI_BLUE + "\nYou hear the rushing waters from the Fountain of Objects. It has been reactivated!" + ANSI_RESET;
@@ -195,9 +193,6 @@ public class Game {
     }
     public Cavern getCavern() {
         return cavern;
-    }
-    public Player getPlayer() {
-        return player;
     }
 
 }

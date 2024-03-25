@@ -8,9 +8,9 @@ public abstract class Room {
     private String display;
 
     private Maelstrom maelstrom;
-    private Amarok amarok;
-
     private boolean maelstromPresent;
+
+    private Amarok amarok;
     private boolean amarokPresent;
 
     // Constructor

@@ -9,46 +9,41 @@ public class TheOldRobot {
 
     public static void main(String[] args) {
 
-        ArrayList<RobotCommand> inputCommands = new ArrayList<RobotCommand>();
-;
-        for (int i = 1; i <= 3; i++) {
-            System.out.println("Enter a command.");
+        ArrayList<RobotCommand> inputCommands = new ArrayList<>();
+
+        while (true) {
+            System.out.println("Enter a command. Enter 'stop' to stop giving commands.");
             String command = scanner.next();
 
+            if (command.equalsIgnoreCase("stop")) {
+                break;
+            }
+
             RobotCommand robotCommand = convertCommand(command);
-            inputCommands.add(robotCommand);
+            if(robotCommand != null) {
+                inputCommands.add(robotCommand);
+            }
 
         }
 
         Robot robot = new Robot(inputCommands);
-
         robot.run();
 
     }
 
     public static RobotCommand convertCommand(String command) {
-
-        RobotCommand robotCommand = null;
-        if (command.equalsIgnoreCase("north")) {
-            robotCommand = new NorthCommand();
-        }
-        if (command.equalsIgnoreCase("south")) {
-            robotCommand = new SouthCommand();
-        }
-        if (command.equalsIgnoreCase("east")) {
-            robotCommand = new EastCommand();
-        }
-        if (command.equalsIgnoreCase("west")) {
-            robotCommand = new WestCommand();
-        }
-        if (command.equalsIgnoreCase("on")) {
-            robotCommand = new OnCommand();
-        }
-        if (command.equalsIgnoreCase("off")) {
-            robotCommand = new OffCommand();
-        }
-
-        return robotCommand;
+        return switch (command) {
+            case "north" -> new NorthCommand();
+            case "south" -> new SouthCommand();
+            case "east" -> new EastCommand();
+            case "west" -> new WestCommand();
+            case "on" -> new OnCommand();
+            case "off" -> new OffCommand();
+            default -> {
+                System.out.println("Input invalid. Try something else.");
+                yield null;
+            }
+        };
 
     }
 

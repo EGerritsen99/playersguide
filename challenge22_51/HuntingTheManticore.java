@@ -1,5 +1,6 @@
-package challenge22;
+package challenge22_51;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class HuntingTheManticore {
@@ -7,21 +8,28 @@ public class HuntingTheManticore {
 
     public static void main(String[] args) {
 
-        /////////// Set variables //////////
+        System.out.println("Input option 1 or 2: \n1. Multiplayer \n2. Singleplayer");
+        int choice = scanner.nextInt();
+
+        int manticoreRange;
+
+        if (choice == 1) {
+            manticoreRange = getRangeMultiplayer();
+
+        } else {
+            Random random = new Random();
+            manticoreRange = random.nextInt(0, 101);
+        }
+
+        playGame(manticoreRange);
+
+    }
+
+    public static void playGame(int manticoreRange) {
 
         int manticoreHealth = 10;
         int cityHealth = 15;
         int roundNumber = 1;
-
-
-        //////// Get range from player 1 ////////////
-
-        int manticoreRange = getManticoreRange();
-
-        getBlankPage();
-
-
-        //////// Play game //////////
 
         while (manticoreHealth > 0 && cityHealth > 0) {
             int amountOfDamage = getDamage(roundNumber);
@@ -40,9 +48,10 @@ public class HuntingTheManticore {
 
     }
 
-    public static int getManticoreRange() {
+    public static int getRangeMultiplayer() {
         int maxRange = 100;
         int minRange = 0;
+
         System.out.println("Player 1, how far away from the city do you want to station the Manticore?");
         int manticoreRange = scanner.nextInt();
 
@@ -50,6 +59,8 @@ public class HuntingTheManticore {
             System.out.println("The range must be between 0 and 100, please try again.");
             manticoreRange = scanner.nextInt();
         }
+
+        getBlankPage();
 
         return manticoreRange;
 

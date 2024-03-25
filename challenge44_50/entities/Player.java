@@ -6,13 +6,16 @@ public class Player extends Entity {
 
     //Fields
     private int amountOfArrows;
+    private final int size;
 
     //Constructor
-    public Player() {
-        super(0, 0);
+    public Player(int size) {
+        super(0, 0, size);
         setAmountOfArrows(5);
+        this.size = size;
     }
 
+    //Methods
     public Coordinate getHitByMaelstrom() {
 
         // Move north
@@ -22,7 +25,7 @@ public class Player extends Entity {
 
         // Move east twice
         for (int i = 0; i < 2; i++) {
-            if (getColumn() < 3){
+            if (getColumn() < size){
                 moveRight();
             } else {
                 break;
@@ -46,11 +49,10 @@ public class Player extends Entity {
 
     }
 
-
+    // Getters and setters
     public int getAmountOfArrows() {
         return amountOfArrows;
     }
-
     public void setAmountOfArrows(int amountOfArrows) {
         this.amountOfArrows = amountOfArrows;
     }

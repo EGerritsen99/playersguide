@@ -17,7 +17,6 @@ public class Cavern {
     // Constructor
     public Cavern(int size, int amountPits, int amountMaelstroms, int amountAmaroks) {
         cavern = createNewCavern(size, amountPits, amountMaelstroms, amountAmaroks);
-
     }
 
     // Methods
@@ -75,7 +74,7 @@ public class Cavern {
             column = random.nextInt(0, size);
         }
 
-        return new Maelstrom(row, column);
+        return new Maelstrom(row, column, size);
     }
     private static Amarok getNewAmarok (int size, Room[][] currentCavern) {
 
@@ -94,7 +93,7 @@ public class Cavern {
             nextToEntrance = Coordinate.checkAdjacency(amarokCoordinate, entranceCoordinate);
         }
 
-        return new Amarok(row, column);
+        return new Amarok(row, column, size);
 
     }
     private static Room[][] createNewCavern(int size, int amountPits, int amountMaelstroms, int amountAmaroks) {

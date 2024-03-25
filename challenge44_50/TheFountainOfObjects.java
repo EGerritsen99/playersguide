@@ -2,6 +2,9 @@ package challenge44_50;
 
 import challenge44_50.rooms.*;
 import static challenge44_50.data.Colours.*;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class TheFountainOfObjects {
@@ -14,17 +17,14 @@ public class TheFountainOfObjects {
         getListOfCommands();
 
         Game game = getNewGame();
-
         game.displayMessage();
-
         playGame(game);
 
         boolean playAgain = getPlayAgain();
-
         while (playAgain) {
 
-            Game anotherGame = getNewGame();
-            playGame(anotherGame);
+            game = getNewGame();
+            playGame(game);
             playAgain = getPlayAgain();
 
         }
@@ -32,9 +32,11 @@ public class TheFountainOfObjects {
     }
     public static void playGame(Game game) {
 
+        LocalDateTime startTime = LocalDateTime.now();
+
         while (true) {
 
-//            game.displayGame();
+            game.displayGame();
 
             System.out.println(ANSI_PURPLE + "\nEnter your move." + ANSI_RESET);
             String input = scanner.nextLine();
@@ -61,6 +63,11 @@ public class TheFountainOfObjects {
             game.displayMessage();
 
         }
+
+        LocalDateTime endTime = LocalDateTime.now();
+        Duration duration = Duration.between(startTime, endTime);
+
+        System.out.println("Time elapsed since start of game: " + duration.getSeconds() + " seconds.");
 
     }
     public static void makeMove(String input, Game game) {
@@ -114,6 +121,7 @@ public class TheFountainOfObjects {
         } while (repeat);
 
     }
+
     public static Game getNewGame() {
         System.out.println("Do you want to play a small, medium or large game?");
         String choice = scanner.next();
@@ -150,7 +158,7 @@ public class TheFountainOfObjects {
         scanner.nextLine();
 
         while (!yesNo.equalsIgnoreCase("yes") && !yesNo.equalsIgnoreCase("no")) {
-            System.out.println("Input invalid, enter either yes or no.");
+            System.out.println(ANSI_RED + "Input invalid, enter either yes or no." + ANSI_RESET);
             yesNo = scanner.next();
             scanner.nextLine();
         }
@@ -158,6 +166,7 @@ public class TheFountainOfObjects {
         return yesNo.equalsIgnoreCase("yes");
 
     }
+
     public static void displayGameRules() {
 
         String display = ANSI_CYAN

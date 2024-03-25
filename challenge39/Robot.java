@@ -1,13 +1,20 @@
 package challenge39;
 
+import java.util.ArrayList;
 import java.util.List;
 
-class Robot {
+public class Robot {
 
     //Fields
     private int x;
     private int y;
     private boolean isPowered;
+    private final ArrayList<RobotCommand> commands;
+
+    //Constructor
+    public Robot(ArrayList<RobotCommand> inputCommands) {
+        commands = inputCommands;
+    }
 
     //Methods
     public void moveX(int step) {
@@ -18,15 +25,14 @@ class Robot {
         if (isPowered) y += step;
     }
 
-    private final RobotCommand[] commands = new RobotCommand[3];
-
-    //Constructor
-    public Robot(List<RobotCommand> inputCommands) {
-        if (inputCommands.size() != 3) throw new IllegalArgumentException("Error: Need three commands.");
-        inputCommands.toArray(commands);
+    public void run() {
+        for (RobotCommand command : commands) {
+            command.run(this);
+            System.out.printf("[%d %d %b]\n", x, y, isPowered);
+        }
     }
 
-    //Setter
+    //getters and setters
     public void setPowered(boolean powered) {
         isPowered = powered;
     }
@@ -35,10 +41,5 @@ class Robot {
         return isPowered;
     }
 
-    public void run() {
-        for (RobotCommand command : commands) {
-            command.run(this);
-            System.out.printf("[%d %d %b]\n", x, y, isPowered);
-        }
-    }
+
 }
