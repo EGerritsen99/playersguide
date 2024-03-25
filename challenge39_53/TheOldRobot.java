@@ -1,4 +1,4 @@
-package challenge39;
+package challenge39_53;
 
 import java.util.ArrayList;
 import java.util.Scanner;

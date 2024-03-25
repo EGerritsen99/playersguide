@@ -1,11 +1,11 @@
-package challenge39;
+package challenge39_53;
 
-public class EastCommand extends RobotCommand {
+public class NorthCommand extends RobotCommand{
 
     @Override
     public void run(Robot robot) {
         if (robot.getPowered()) {
-            robot.moveX(1);
+            robot.moveY(1);
         }
     }
 }
