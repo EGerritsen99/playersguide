@@ -11,7 +11,7 @@ public class TheFountainOfObjects {
 
     public static Scanner scanner = new Scanner(System.in);
 
-sma    public static void main(String[] args) {
+    public static void main(String[] args) {
 
         displayGameRules();
         getListOfCommands();
