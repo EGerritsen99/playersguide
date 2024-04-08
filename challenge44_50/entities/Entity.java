@@ -21,7 +21,7 @@ public class Entity {
     // Methods
     public void moveRight() {
 
-        if (column == size) {
+        if (column == size - 1) {
             System.out.println(wrongWay);
         } else {
             setColumn(column + 1);
@@ -48,7 +48,7 @@ public class Entity {
     }
     public void moveDown() {
 
-        if (row == size) {
+        if (row == size - 1) {
             System.out.println(wrongWay);
         } else {
             setRow(row + 1);

@@ -11,7 +11,7 @@ public class TheFountainOfObjects {
 
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+sma    public static void main(String[] args) {
 
         displayGameRules();
         getListOfCommands();
@@ -35,8 +35,8 @@ public class TheFountainOfObjects {
         LocalDateTime startTime = LocalDateTime.now();
 
         while (true) {
-
-            game.displayGame();
+//
+//            game.displayGame();
 
             System.out.println(ANSI_PURPLE + "\nEnter your move." + ANSI_RESET);
             String input = scanner.nextLine();
