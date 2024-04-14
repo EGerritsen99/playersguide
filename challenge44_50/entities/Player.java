@@ -5,12 +5,11 @@ import challenge44_50.data.*;
 public class Player extends Entity {
 
     //Fields
-    private int amountOfArrows;
+    private int amountOfArrows = 5;
 
     //Constructor
     public Player(int size) {
         super(0, 0, size);
-        setAmountOfArrows(5);
     }
 
     //Methods

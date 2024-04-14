@@ -9,11 +9,7 @@ public class FountainRoom extends Room {
 
     // Method fountain
     public boolean onOffSwitch(String input) {
-        if (input.equalsIgnoreCase("enable fountain")) {
-            return true;
-        } else {
-            return false;
-        }
+        return input.equalsIgnoreCase("enable fountain");
     }
 }
 

@@ -111,13 +111,13 @@ public class Cavern {
             newCavern[pitCoordinate.getRow()][pitCoordinate.getColumn()] = new PitRoom();
         }
 
-        // instantiate new maelstroms
+        // Add maelstroms
         for (int i = 0; i < amountMaelstroms; i++) {
             Maelstrom maelstrom = getNewMaelstrom(size, newCavern);
             newCavern[maelstrom.getRow()][maelstrom.getColumn()].addMaelstrom(maelstrom);
         }
 
-        // instantiate new amaroks
+        // Add amaroks
         for (int i = 0; i < amountAmaroks; i++) {
             Amarok amarok = getNewAmarok(size, newCavern);
             newCavern[amarok.getRow()][amarok.getColumn()].addAmarok(amarok);

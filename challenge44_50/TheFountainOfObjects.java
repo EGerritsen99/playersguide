@@ -35,7 +35,7 @@ public class TheFountainOfObjects {
         LocalDateTime startTime = LocalDateTime.now();
 
         while (true) {
-//
+
 //            game.displayGame();
 
             System.out.println(ANSI_PURPLE + "\nEnter your move." + ANSI_RESET);

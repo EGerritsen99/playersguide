@@ -59,9 +59,6 @@ public abstract class Room {
     }
 
     // Amarok getters and setters
-    public Amarok getAmarok() {
-        return amarok;
-    }
     public void setAmarok(Amarok amarok) {
         this.amarok = amarok;
     }
